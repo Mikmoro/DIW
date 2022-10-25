@@ -1,0 +1,31 @@
+/*estilos generales pagina*/
+
+body {font-family: verdana, helvetica, sans-serif;font-size: 0.9em;background-color: #edebd5;margin: 0;color: #000;}
+h1, h2, h3, h4, h5  {margin-bottom: 6px;}
+.completo {background-color: #F4F4F4;padding: 20px;min-width: 41.5em;}
+.estrecho {background-color: #F4F4F4;padding: 20px;width: 41.5em; margin: 0 auto;border: 1px solid #630;border-top: none; border-bottom: none;}
+.estrecho img.tabla, .estrecho img.captura {width: 41.5em;}
+#principal {margin-top: 60px;}
+a {outline: 0;}
+h2, p {margin-top: 4px;}
+h3 {margin-top: 24px;}
+h4 {font-size: 1.1em;}
+h5 {font-size: 1em;}
+em {color: #c00; font-style: normal;}
+code {font-family: courier;font-size: 1em;color: #c00;margin-bottom: 30px;display: block;padding: 10px;}
+code.html {background-color: #E8E8E8; border: 1px solid #999;color: #000080;}
+code.css {background-color: #F1ECE4; border: 1px solid #999;color: #750000;}  
+
+ul li {margin-top: 2px;list-style-type: none;}
+ul li a {padding: 3px;line-height:16px;}
+ul li a:hover {background-color: #B4E2E2; color:#006;}
+li.nivel1 {font-weight: bold;margin-top: 6px;}
+li.nivel1 li {font-weight: normal;}
+a.indice {padding: 12px 0 20px 0;display: block;}
+a.normal {border: 1px solid #00f;padding: 4px;}
+img.ancho {width: 100%;}
+#elemento_bloque {height: 40px; border: 1px solid #00f;}
+#anchura {width: 11em;position: absolute; top: 44px; right: 10px;background-color: #edebd5;border: 1px solid #630; text-align: center;}
+#anchura p {padding: 6px 6px 0; color: #5B2D00;font-size: 0.8em;margin-bottom: 4px;}
+#anchura a {text-decoration: none; padding: 3px;background-color: #630;border: 2px outset #5B2D02;color:#fff;font-size: 0.8em;line-height: 30px;}
+#principal ul li {list-style-type: disc;}

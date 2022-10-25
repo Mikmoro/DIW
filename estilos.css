@@ -1,0 +1,97 @@
+
+* {margin:0; padding: 0;}
+body {font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 16px;
+background-color:#002142;
+}
+#contenedor {width: 840px;
+margin: 20px auto;
+}
+#cabecera {width: 840px;
+background-color: #e9eada;
+text-align: center;
+}
+h1 {font-family: "Century Gothic";
+font-size: 48px;
+padding-top: 10px;
+}
+h2 {font-family: "Palatino Linotype";
+font-size: 25px;
+color: #5a011f;
+margin-bottom: 4px;
+}
+ul {list-style-type: none;
+}
+#cabecera img {margin-bottom: -3px;
+}
+#menu {background-color: #333;
+height: 34px;
+}
+#menu ul {text-align: center;
+}
+#menu ul li {float: left;
+width: 25%;
+}
+#menu ul li a {color: #FFF;
+line-height: 34px;
+font-family: "Century Gothic";
+font-weight: bold;
+text-decoration: none;
+display: block;
+width: 99%;
+}
+#menu a:hover {background-color: #e9eada;
+color: #333;
+border: solid 1px #333;
+line-height: 32px;
+}
+#cuerpo {background-color: #F0F0F0;
+}
+#presentacion {width: 380px;
+float: left;
+border-right: solid 2px #002142;
+}
+#presentacion img {float: left;
+padding: 20px 20px 20px 14px;
+}
+#presentacion p {font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #000066;
+margin: 20px 10px 0 0;
+}
+#secciones  img {padding: 22px 16px 16px;
+width: 426px;
+height: 160px;
+float: left
+}
+.corte {clear: both;}
+
+#secciones ul {float: left;
+margin: 16px 0 0 54px;
+}
+#secciones ul li a {color: #006;
+font-family: "Century Gothic";
+font-weight: bold;
+font-size: 13px;
+text-decoration: none;
+}
+#secciones ul li a:hover {text-decoration: underline;}
+#pie {background-color: #191919;
+height: 106px;
+color: #fff;
+font-size: 10px;
+}
+#pie img {float: right;
+padding: 10px;
+}
+#pie div.datos {float: right;
+margin-top: 14px;
+text-align: right;
+}
+#pie p {padding-top: 2px;
+}
+#pie a {font-weight: bold;
+font-size: 18px;
+color: #fff;
+line-height: 30px;
+}

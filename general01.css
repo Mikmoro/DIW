@@ -1,0 +1,19 @@
+/*estilos generales pagina*/
+
+body {font-family: verdana, helvetica, sans-serif;font-size: 0.9em;background-color: #F4F4F4;margin: 20px;}
+h1, h2, h3, h4, h5  {margin-bottom: 6px;}
+#principal {margin-top: 60px;}
+h2, p {margin-top: 4px;}
+h3 {margin-top: 24px;}
+h4 {font-size: 1.1em;}
+h5 {font-size: 1em;}
+em {color: #c00; font-style: normal;}
+pre {font-size: 1.2em!important; font-size: 0.9em;color: #c00;}
+ul li {margin-top: 2px;list-style-type: none;}
+ul li a {padding: 3px;line-height:16px;}
+ul li a:hover {background-color: #B4E2E2; color:#006;}
+li.nivel1 {font-weight: bold;margin-top: 6px;}
+li.nivel1 li {font-weight: normal;}
+a.indice {padding: 12px 0 20px 0;display: block;}
+a.normal {border: 1px solid #00f;padding: 4px;}
+img.ancho {width: 96%;}

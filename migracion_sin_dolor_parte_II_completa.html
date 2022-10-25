@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es-es">
+<head>
+<title>Migracion de HTML+Tablas a XHTML+CSS Parte II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Keywords" content="recursos, css, diseño Web, xhtml, software libre" />
+<meta name="Description" content="Migracion de HTML+Tablas a XHTML+CSS Parte II - Recursos CSS - araudi.net" />
+<meta name="Author" content="Mikel Morote Donazar - Praxis Iru&ntilde;ea SLL" />
+<meta name="Subject" content="Recursos CSS" />
+<meta name="Language" content="es" />
+<meta name="Robots" content="index, follow" />
+<link rel="alternate" href="http://www.araudi.net/migracion/migracion_sin_dolor.html" title="Parte I - Migración sin dolor" media="all" lang="es" />
+<link rel="alternate" href="http://www.araudi.net/indice.html" title="Indice de contenidos" media="all" lang="es" />
+<link rel="stylesheet" href="general.css" type="text/css" />
+<script type="text/javascript" src="columna.js"></script>
+</head>
+<body>
+<div id="contenedor" class="completo">
+<h1>MIGRACIÓN SIN DOLOR - PARTE II</h1>
+<h2>Un ejemplo práctico</h2>
+<div id="anchura">
+<p>Si prefieres leer en una columna a pantalla completa, usa estos botones</p>
+<a href="migracion_sin_dolor_parte_II_completa.html" id="ancha">Completa</a>
+<a href="migracion_sin_dolor_parte_II.html" id="estrecha">Estrecha</a>
+</div>
+<h3 id="indice">Índice de contenidos [tecla acceso: 0]</h3>
+<ul>
+	<li class="nivel1"><a href="#intro" accesskey="1">1.- INTRODUCCIÓN [tecla acceso: 1]</a>
+		<ul>
+			<li><a href="#original">1.1.- El original</a></li>
+		</ul>
+	</li>
+	<li class="nivel1"><a href="#pasos" accesskey="2">2.- PASO A PASO [tecla acceso: 2]</a>
+		<ul>
+			<li><a href="#lacabecera">2.1.- La cabecera</a></li>
+			<li><a href="#laestructura">2.2.- La estructura</a></li>
+			<li><a href="#elcontenido">2.3.- El contenido</a>
+				<ul>
+					<li><a href="#elheader">2.3.1.- La cabecera o "Header"</a></li>
+					<li><a href="#elmenu">2.3.2.- El menú</a></li>
+					<li><a href="#elcuerpo">2.3.3.- El cuerpo</a></li>
+					<li><a href="#elpie">2.3.4.- El pie</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li class="nivel1"><a href="#resultado" accesskey="3">3.- RESULTADO FINAL [tecla acceso: 3]</a></li>
+</ul>
+<div id="principal">
+<h3 id="intro">1.- INTRODUCCIÓN</h3>
+<p>Hola de nuevo. En esta segunda parte de la pequeña "<strong>Guía de Migración sin Dolor</strong>", vamos a pasar directamente a poner en práctica los conceptos que vimos en la primera parte, con un ejemplo real de transformación de un diseño con tablas y algo de <em>CSS</em> incrustado en el propio documento, a un diseño con <em>XHTM</em>L y <em>CSS</em>, un documento válido, bien formado y con una hoja de estilo externa enlazada.</p>
+<p>Esto no va a ser un manual de buenas prácticas de diseño moderno, ya que para eso tendríamos que tener en cuenta un montón de factores antes de empezar, que quizá veamos en la parte III de esta guía; va a ser únicamente un ejemplo de cómo transformar un diseño real con tablas en otro más eficiente sin ellas.</p>
+<p>Como siempre, el asunto parte de la consulta de un usuario en <a href="http://www.forosdelweb.com/" title="forosdelweb.com">forosdelweb</a>, que quería saber cómo eliminar unos molestos espacios de separación entre las celdas de las tablas de su página. Al comprobar que el diseño estaba completamente hecho con tablas, y que en realidad ese mismo diseño se podía conseguir de forma mucho más sencilla con <em>XHTML</em> y <em>CSS</em>, se le sugirió que por qué no dar el paso y transformar ese código. El usuario se declaró completamente novato con <em>CSS</em>, por lo que sería complicado llevarlo a cabo.</p>
+<p>Tras algunas sugerencias que el usuario intentó aplicar sin éxito, y varias intentonas por parte de otros usuarios, finalmente se dió por satisfecho con una supuesta solución a su problema inicial (que no lo era en realidad). Cuando yo me encontré ese hilo, vi que el problema era tan sencillo de resolver que decidí, y para no admitir excusas ( :-) ), escribir y publicar en el hilo el código exacto que necesitaba para la transformación citada, de manera que el usuario sólo tendría que copiar y pegar, y comprometerse a estudiarlo para comprenderlo y ser capaz de llevarlo adelante en sus siguientes páginas.</p>
+<p>Finalmente, pedí permiso al usuario para utilizar su código inicial y las imágenes como ejemplo en este documento, y hace poco me contestó autorizándome a utilizarlo, con la salvedad de que aunque el diseño era efectivamente suyo, la web en sí no lo es, ya que la estaba desarrollando para un desplacho, así que si de repente véis desaparecer la guía por un tiempo, será que me conminaron a no utilizarlo de ejemplo y estaré escribiendo lo mismo con otro caso (espero que no ocurra, je, je, pero el propietario en cuestión es abogado, como veréis).</p>
+<p>Bueno, y sin más preámbulos vamos a pasar a presentar los elementos y desarrollar el ejemplo.</p>
+<a accesskey="0" href="#indice" class="indice">Volver al índice</a>
+<h4 id="original">1.1.- El original</h4>
+<p>Para que os hagáis una idea de qué estamos hablando, esta es una captura de la página original hecha con tablas:</p>
+<img class="captura" src="imagenes/captura1.jpg" alt="Imagen original de la web" title="Imagen original de la web" longdesc="descripciones.html#original" /> [<a href="descripciones.html#original" title="Descripción de la imagen">D</a>]<br/><br/>
+<a href="con_tablas.html">Enlace a la página real</a>
+<p>(Este enlace es externo y lleva a otra página)</p>
+<p>Ahí podemos ver la estructura de qué es lo que se pretende bien definida. Es una página de <strong>ancho fijo</strong>, que tendrá una cabecera, un menú central, el texto de presentación, un submenú apoyado por otra imagen en la línea de la temática de la página, y finalmente un pie con los datos de contacto.</p>
+<p>El código que se había utilizado para esto era el siguiente:</p>
+<code class="html">
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;<br/>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;<br/>
+&lt;head&gt;<br/>
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot; /&gt;<br/>
+&lt;title&gt;Abogado-Malaga&lt;/title&gt;<br/>
+&lt;style type=&quot;text/css&quot;&gt;<br/>
+&lt;!--<br/>
+body {<br/>
+	background-color: #002142;<br/>
+	margin-left: 0px;<br/>
+	margin-top: 0px;<br/>
+}<br/>
+.Estilo87 {<br/>
+	font-family: Arial, Helvetica, sans-serif;<br/>
+	font-size: 12px;<br/>
+	color: #000066;<br/>
+}<br/>
+.Estilo34 {<br/>
+	font-family: &quot;Times New Roman&quot;, Times, serif;<br/>
+	color: #FFFFFF;<br/>
+}<br/>
+.Estilo35 {font-family: Verdana, Arial, Helvetica, sans-serif;<br/>
+	font-weight: bold;<br/>
+	font-size: 18px;<br/>
+}<br/>
+.Estilo89 {font-size: 12px}<br/>
+.Estilo5 {color: #FFFFFF; font-family: &quot;Century Gothic&quot;; font-weight: bold; }<br/>
+a:link {<br/>
+	color: #FFFFFF;<br/>
+	text-decoration: none;<br/>
+}<br/>
+a:visited {<br/>
+	text-decoration: none;<br/>
+	color: #FFFFFF;<br/>
+}<br/>
+a:hover {<br/>
+	text-decoration: none;<br/>
+}<br/>
+a:active {<br/>
+	text-decoration: none;<br/>
+}<br/>
+.Estilo108 {color: #000033; font-family: &quot;Century Gothic&quot;; font-weight: bold; font-size: 13px; }<br/>
+.Estilo111 {color: #009933; font-family: &quot;Century Gothic&quot;; font-weight: bold; font-size: 13px; }<br/>
+.Estilo113 {color: #000033}<br/>
+.Estilo115 {color: #003366; font-family: &quot;Century Gothic&quot;; font-weight: bold; font-size: 13px; }<br/>
+.Estilo117 {color: #000066; font-family: &quot;Century Gothic&quot;; font-weight: bold; font-size: 13px; }<br/>
+.Estilo118 {color: #000066}<br/>
+--&gt;<br/>
+&lt;/style&gt;&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+&lt;br /&gt;<br/>
+&lt;table width=&quot;846&quot; border=&quot;0&quot; align=&quot;center&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td colspan=&quot;4&quot;&gt;&lt;img src=&quot;imagenes/cabecera.jpg&quot; width=&quot;840&quot; height=&quot;107&quot; /&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td colspan=&quot;4&quot;&gt;&lt;img src=&quot;imagenes/panoramica.jpg&quot; width=&quot;840&quot; height=&quot;110&quot; /&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;186&quot; height=&quot;34&quot; align=&quot;center&quot; valign=&quot;middle&quot; bgcolor=&quot;#333333&quot;&gt;&lt;span class=&quot;Estilo5&quot;&gt;&lt;a href=&quot;inicio.html&quot;&gt;INICIO&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;208&quot; align=&quot;center&quot; valign=&quot;middle&quot; bgcolor=&quot;#333333&quot;&gt;&lt;span class=&quot;Estilo5&quot;&gt;&lt;a href=&quot;areas.html&quot;&gt;AREAS DE ACTUACI&amp;Oacute;N&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;205&quot; align=&quot;center&quot; valign=&quot;middle&quot; bgcolor=&quot;#333333&quot;&gt;&lt;span class=&quot;Estilo5&quot;&gt;&lt;a href=&quot;situacion.html&quot;&gt;SITUACI&amp;Oacute;N&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;229&quot; align=&quot;center&quot; valign=&quot;middle&quot; bgcolor=&quot;#333333&quot;&gt;&lt;span class=&quot;Estilo5&quot;&gt;&lt;a href=&quot;contacto.html&quot;&gt;CONTACTO&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&lt;/table&gt;<br/>
+&lt;table width=&quot;846&quot; border=&quot;0&quot; align=&quot;center&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;45%&quot; height=&quot;288&quot; align=&quot;center&quot; bgcolor=&quot;#F0F0F0&quot;&gt;&lt;table width=&quot;95%&quot; border=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;58%&quot; align=&quot;left&quot; valign=&quot;middle&quot;&gt;&lt;img src=&quot;imagenes/ubicacion.jpg&quot; width=&quot;188&quot; height=&quot;250&quot; /&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;42%&quot; align=&quot;left&quot; valign=&quot;top&quot;&gt;&lt;span class=&quot;Estilo87&quot;&gt;Los servicios de asesoramiento que  presta el despacho, ubicado en M&amp;aacute;laga capital, abarca la totalidad  de Espa&amp;ntilde;a, contando, si fuera preciso, con la colaboraci&amp;oacute;n de los  mejores profesionales para el supuesto de que as&amp;iacute; lo requiriese la  situaci&amp;oacute;n o el propio cliente y siempre bajo los criterios de  competencia, iimplicaci&amp;oacute;n, responsabilidad y transparencia.&lt;/span&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/table&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;55%&quot; align=&quot;left&quot; valign=&quot;middle&quot; bgcolor=&quot;#F0F0F0&quot;&gt;&lt;table width=&quot;94%&quot; border=&quot;0&quot; align=&quot;center&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;52%&quot;&gt;&lt;span class=&quot;Estilo111&quot;&gt;&lt;a href=&quot;civil.html&quot;&gt;&lt;span class=&quot;Estilo113&quot;&gt;&lt;span class=&quot;Estilo118&quot;&gt;-Derecho civil &lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;48%&quot;&gt;&lt;div align=&quot;right&quot; class=&quot;Estilo108&quot;&gt;&lt;a href=&quot;familia.html&quot;&gt;&lt;span class=&quot;Estilo118&quot;&gt;-Derecho de familia&lt;/span&gt;&lt;/a&gt; &lt;/div&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;span class=&quot;Estilo115&quot;&gt;&lt;a href=&quot;mercantil.html&quot;&gt;&lt;span class=&quot;Estilo113&quot;&gt;&lt;span class=&quot;Estilo118&quot;&gt; -Derecho mercantil &lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;div align=&quot;right&quot; class=&quot;Estilo108&quot;&gt;&lt;a href=&quot;laboral.html&quot;&gt;&lt;span class=&quot;Estilo118&quot;&gt;-Derecho labora&lt;/span&gt;&lt;span class=&quot;Estilo113&quot;&gt;l&lt;/span&gt; &lt;/a&gt;&lt;/div&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;span class=&quot;Estilo117&quot;&gt;&lt;a href=&quot;administrativo.html&quot;&gt; &lt;span class=&quot;Estilo118&quot;&gt;-Derecho administrativo &lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td align=&quot;left&quot;&gt;&lt;div align=&quot;right&quot; class=&quot;Estilo108&quot;&gt;&lt;a href=&quot;accidentes.html&quot;&gt;&lt;span class=&quot;Estilo118&quot;&gt;-Accidentes&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;span class=&quot;Estilo108&quot;&gt;&lt;a href=&quot;penal.html&quot;&gt;&lt;span class=&quot;Estilo118&quot;&gt;-Derecho Penal&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&amp;nbsp;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td colspan=&quot;2&quot;&gt;&lt;img src=&quot;imagenes/libros.jpg&quot; width=&quot;426&quot; height=&quot;160&quot; /&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/table&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&lt;/table&gt;<br/>
+&nbsp;&nbsp;&lt;table width=&quot;846&quot; height=&quot;106&quot; border=&quot;0&quot; align=&quot;center&quot; bordercolor=&quot;#191919&quot; bgcolor=&quot;#191919&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;390&quot; height=&quot;102&quot; bgcolor=&quot;#191919&quot;&gt;&amp;nbsp;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;324&quot; bgcolor=&quot;#191919&quot;&gt;&lt;div align=&quot;right&quot;&gt;&lt;span class=&quot;Estilo34&quot;&gt;&lt;span class=&quot;Estilo89&quot;&gt;Tel&amp;eacute;fono: *********&lt;br /&gt;<br/>        Fax: *******&lt;br /&gt;<br/>
+        Direcci&amp;oacute;n: ***********************&lt;/span&gt;&lt;br /&gt;<br/>
+&nbsp;&nbsp;&lt;span class=&quot;Estilo35&quot;&gt;&lt;u&gt;&lt;a href=&quot;formulario.html&quot;&gt;CONSULTA PREVIA CITA&lt;/a&gt; &lt;/u&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=&quot;119&quot; align=&quot;center&quot; bgcolor=&quot;#191919&quot;&gt;&lt;img src=&quot;imagenes/telefono.jpg&quot; width=&quot;96&quot; height=&quot;95&quot; /&gt;&lt;/td&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br/>
+&nbsp;&nbsp;&lt;/table&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+</code>
+<p>En ese código ya podemos encontrar algunos problemas serios:</p>
+	<ul>
+		<li>no existe un título en el contenido de la página, siendo el encabezamiento una imagen, por lo que no cumplirá su función y desaparecerá en caso de que éstas estén desativadas</li>
+		<li>la semántica brilla por su ausencia, ordenando los elementos en base a la popular cuadrícula y sin ningún tipo de orden lógico</li>
+		<li>las etiquetas <em>HTML</em> están llenas de estilos, algo completamente desaconsejado en un diseño actual que intente respetar los estándares</li>
+		<li>...y unas cuantas cosas más</li>
+	</ul>
+<p>En definitiva, y sin querer aludir en ningún momento al creador, ya que como hemos dicho se declaraba un novato absoluto con <em>XHTML</em> y <em>CSS</em>, el código arrastra muchos problemas que restan eficacia, velocidad, limpieza y orden a la página, lo que le perjudica seriamente tanto a la hora de ser interpretada por personas como por robots y artilugios automáticos de los buscadores.</p>
+<p>De manera que vamos a empezar la transformación (antes de empezar, sería un excelente ejercicio intentar imaginar cómo se haría esto sin usar tablas, sin haber visto el resultado final ni las explicaciones).</p>
+<a class="indice" href="#indice">Volver al índice</a>
+<h3 id="pasos">2.- PASO A PASO</h3>
+<p>Como ya comentábamos, vamos a ir paso a paso transformando el código, creando la estructira inicial, viendo los elementos que necesitaremos, etcétera. En cada paso intentaré explicar lo que uso y por qué.</p>
+<h4 id="lacabecera">2.1.- La cabecera</h4>
+<p>Ya dijimos en la primera parte que una de las cosas primordiales es estructurar correctamente el documento, comenzando siempre por colocar un <em>doctype</em> y una cabecera correctas y que se ciñan a los estándares.</p>
+<p>Empezaremos pues por una cabecera parecida a esta:</p>
+<code class="html">
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;<br/>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;es&quot; lang=&quot;es-es&quot;&gt;<br/>
+&lt;head&gt;<br/>
+&lt;title&gt;Abogado-Malaga, Despacho de Abogados&lt;/title&gt;<br/>
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot; /&gt;<br/>
+&lt;meta name=&quot;Keywords&quot; content=&quot;abogado, malaga, despacho, colegio, recursos, penal, social&quot; /&gt;<br/>
+&lt;meta name=&quot;Description&quot; content=&quot;Despacho profesional en Málaga del abogado ****&quot; /&gt;<br/>
+&lt;meta name=&quot;Author&quot; content=&quot;****&quot; /&gt;<br/>
+&lt;meta name=&quot;Subject&quot; content=&quot;Despacho de Abogados&quot; /&gt;<br/>
+&lt;meta name=&quot;Language&quot; content=&quot;es&quot; /&gt;<br/>
+&lt;meta name=&quot;Robots&quot; content=&quot;index, follow&quot; /&gt;<br/>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;estilos.css&quot; type=&quot;text/css&quot; /&gt;<br/>
+&lt;/head&gt;<br/>
+</code>
+<p>en la que destacamos un inicio con un "doctype estricto" (<em>strict</em>), la declaración del tipo y el idioma del documento, el juego de caracteres (<em>iso-8859-1</em> en este caso), un título adecuado para la página, algunas etiquetas "meta" esenciales y el enlace a la hoja de estilo externa.</p>
+<p>No me explayaré mucho en este asunto, ya que al estar hablando de migración doy por supuesto que el diseñador que utiliza tablas hasta ahora no tiene por que no conocer todo lo referente a la cabecera (que además habíamos tratado ya, aunque sin excesivo detalle, en la primera parte de la guía), o en su caso, ser capaz de encontrar las ingentes cantidades de literatura al respecto existentes en la red, y también porque esta segunda parte no está orientada hacia eso.</p>
+<p>Sólo resaltaré un detalle porque me parece importante: como podremos observar en el código original, al estar escrito con un programa editor de <em>HTML</em>, todos los caracteres que podrían resultar "conflictivos" (tildes, eñes, interrogaciones, etc.), son reemplazados por sus respectivas "entidades HTML" (&amp;aacute; para la á, &amp;ntilde; para la eñe, etcétera). Esto no es en absoluto necesario si hemos declarado un juego de caracteres como <em>ISO-8859-1</em> en la cabecera, que incluye todos los caracteres del idioma español y muchos más, y guardamos nuestro archivo con la codificación en formato <em>ANSI</em>, ya que gracias a estos dos detalles, todos los caracteres que escribamos en castellano serán perfectamente interpretados en cualquier navegador.</p>
+<a class="indice" href="#indice">Volver al índice</a>
+<h4 id="laestructura">2.2.- La estructura</h4>
+<p>Bien, como ya aconsejábamos en la primera parte de la guía, vamos a comenzar por poner <strong>un contenedor principal</strong>, dentro del cual pondremos todo lo demás, y que nos servirá para reemplazar la tabla principal y para indicar un ancho determinado para toda la web, y que ésta esté <strong>centrada siempre</strong>, independientemente de la resolución de pantalla:</p>
+<code class="html">&lt;body&gt;<br/>
+&lt;div id="contenedor"&gt;<br/>
+...<br/>
+&lt;/div&gt;<br/>
+&lt;/body&gt;</code>
+<p>Le ponemos un identificador (<em>id</em>) para poder referirnos a él cómodamente desde la <em>CSS</em>.</p>
+<p>A continuación, y como parte de la estructura básica, empezaremos por añadir estos selectores a nuestra hoja de estilo (que como hemos visto guardaremos con formato de texto plano (<em>txt</em>) y llamaremos "<strong>estilos.css</strong>"):</p>
+<code class="css">
+* {margin:0; padding: 0;}<br/>
+<br/>
+body {font-family: Verdana, Arial, Helvetica, sans-serif;<br/>
+font-size: 16px;<br/>
+background-color:#002142;<br/>
+}<br/>
+#contenedor {width: 840px;<br/>
+margin: 20px auto;<br/>
+}
+</code>
+<p>Con el primer selector (<em>* {...}</em>), estamos utilizando el selector universal del asterisco para referirnos a "todos" los elementos de nuestro código, y lo que estamos haciendo es decirle que ponga a todos ellos un margen y un relleno de cero, con lo que estamos eliminando el margin y padding que pudieran tener algunos elementos por defecto (muchos lo tienen). Es una buena manera de comenzar una hoja de estilo. Esta práctica se suele conocer como "resetear" (no me parece un término demasiado adecuado, pero es el que hay), para lo que se suelen usar muchas más cosas, terminando a veces con hojas de estilo de tamaño considerable sólo para hacer esta función de "resetear" o poner a cero los estilos por dedecto, que por otro lado puede evitarnos muchos dolores de cabeza.</p>
+<p>Los otros dos selectores parecen algo más evidentes: asignamos al elemento "<em>body</em>" una familia de tipo de letra principal y tres secundarias (genéricas), para que en el caso de que alguna de ellas no esté presente en el sistema del visitante se utilice la siguiente; le damos un tamaño al texto (recordad que lo que intentamos es imitar al máximo el diseño que ya teníamos, no mejorarlo o hacer una declaración de mejores prácticas, en cuyo caso yo hubiera elegido "<em>em</em>" para el tamaño de letra), y un simple color de fondo.</p>
+<p>El selector del contenedor, que como vemos hemos llamado por su identificador (anteponiendo al nombre la almohadilla que identifica que se trata de un <em>ID</em>), solamente le hemos indicado el ancho fijo en pixels, imitando al que ya había en el original, y hemos utilizado el margen lateral automático para centrarlo en la pantalla en horizontal, dando a su vez un margen de <em>20px</em> superior e inferior para dejar el hueco que había. Recuerda que propiedades como el margen se pueden agrupar en una sola declaración, funcionando como: arriba, derecha, abajo e izquierda (en la dirección de las agujas del reloj), y que a su vez se pueden agrupar por parejas, pudiendo usar el primer valor para indicar "arriba y abajo", y el segundo para "izquierda y derecha", como en el caso que nos ocupa (<em>margin: 20px auto;</em> significa <em>20px</em> arriba y abajo, y automático a derecha e izquierda).</p>
+<p>La definición de la estructura se completaría con el resto de bloques que vamos a colocar para conseguir el mismo aspecto visual que con las tablas. Pero casi creo que es mejor seguir paso a paso por cada nuevo bloque, ya que es como yo lo construyo, en lugar de pensar en el conjunto completo ahora. Si fuera algo con mayor complicación seguramente sería mejor pensar primero la estructura general y demás, pero siendo lo que es, e intentando únicamente imitar lo que ya teníamos, considero que no es necesario, pudiendo ir viendo tranquilamente cómo crear y colocar cada nuevo bloque.</p>
+<a class="indice" href="#indice">Volver al índice</a>
+<h4 id="elcontenido">2.3.- El contenido</h4>
+<p>Para empezar ya a ver el contenido vamos a comenzar por colocar los siguientes elementos:</p>
+<h5 id="elheader">2.3.1.- La cabecera o "Header"</h5>
+<p>Empezamos por el clásico "<em>header</em>", al que como no soy anglófono llamaré simplemente "<em>cabecera</em>" (lo he remarcado para que no se confunda con la cabecera del archivo <em>HTML</em> en sí, que ya hemos descrito antes).</p>
+<p>Esta cabecera será el bloque que contendrá tanto el titular como el subtítulo y la imagen inicial que ocupa todo el ancho (que también identificaremos con un <em>ID</em>, ya que será único en toda la página). Para el titular y el subtítulo usaremos como es lógico los elementos <em>h1</em> y <em>h2</em>, cuya función es exactamente esa, proporcionar el título o motivo principal de la página y el subtítulo o motivo secundario. Es el orden más lógico y semántico que encontraremos, de la misma manera que cuando leemos un libro.</p>
+<code class="html">&lt;div id="cabecera"&gt;<br/>
+&nbsp;&nbsp;&lt;h1&gt;www.abogado-malaga.es&lt;/h1&gt;<br/>
+&nbsp;&nbsp;&lt;h2&gt;DESPACHO DE ABOGADOS&lt;/h2&gt;<br/>
+&lt;/div&gt;
+</code>
+<p>A diferencia del código original, este título no será una imagen, ya que en caso de que las imágenes estuvieran desactivadas o simplemente fallaran, desaparecería por completo el motivo o título principal del documento, algo que me parece muy mala práctica. Encontraremos que efectivamente la tipografía no va ser del todo exacta, ya que usar una imagen nos permitirá usar la que más nos guste y el visitante la verá bien, mientras que siendo texto estamos sujetos a las fuentes instaladas en su sistema. Pero a este respecto habremos de preguntarnos: <strong>¿qué es más importante?</strong> Personalmente lo tengo claro, pero cada uno quizá tenga su propia opinión. Para mi no se pierde nada de la tipografía usada en el código original a la que yo mostraré al final del documento aunque sea un poquitín diferente (y esto sí que es opinable), y sin embargo se gana orden y semántica en el documento.</p>
+<p>Otro asunto importante: ¿cómo pondremos la imagen de la cabecera? Podríamos hacerlo como fondo del <em>div</em> "cabecera", o de alguno de los elementos <em>header</em>, o insertada directamente, etc. Bien, en este caso la vamos a poner <strong>directamente en el código y no como fondo</strong>. ¿Por qué? porque si por alguna razón la imagen no se viera (error del enlace, hoja de estilo desactivada, etc.), tampoco veríamos el texto de sustitución de la imagen (al estar como "<em>background</em>" en la <em>CSS</em>), lo que nos impediría saber qué había ahí, y si ha sido colocada en esa posición, es de suponer que será una imagen relevante para la web. Quizá pueda haber otras imágenes más decorativas y menos relevantes a lo largo de la página, pero es de suponer que la imagen que aparece en la cabecera pretenderá hablar de la empresa, el propietario o el objetivo de la web, por lo que suele ser suficientemente relevante como para que procuremos, por un lado, usar el texto alternativo en caso de que no se pueda ver por alguna razón, y por otro, ofrecer una descripción detallada para personas con alguna discapacidad.</p>
+<p>De esa manera, la cabecera nos quedará como sigue:</p>
+<code class="html">&lt;div id="cabecera"&gt;<br/>
+&nbsp;&nbsp;&lt;h1&gt;www.abogado-malaga.es&lt;/h1&gt;<br/>
+&nbsp;&nbsp;&lt;h2&gt;DESPACHO DE ABOGADOS&lt;/h2&gt;<br/>
+&nbsp;&nbsp;&lt;img src="imagenes/panoramica.jpg" alt="Imagen corporativa del despacho" /&gt;<br/>
+&lt;/div&gt;
+</code>
+<p>Es importante usar siempre el atributo "<em>alt</em>" en todas nuestras imágenes, y como mínimo procurar que sea algo descriptivo como muestra el ejemplo, no el clásico "foto_roja", que no diría absolutamente nada en caso de que no se viera la imagen.</p>
+<p>Como lo que estamos intentando es imitar el aspecto original, añadiremos estos selectores a la <em>CSS</em>:</p>
+<code class="css">
+#cabecera {width: 840px;<br/>
+background-color: #e9eada;<br/>
+text-align: center;<br/>
+}<br/>
+h1 {font-family: "Century Gothic";<br/>
+font-size: 48px;<br/>
+padding-top: 10px;<br/>
+}<br/>
+h2 {font-family: "Palatino Linotype";<br/>
+font-size: 25px;<br/>
+color: #5a011f;<br/>
+margin-bottom: 4px;<br/>
+}<br/>
+</code>
+<p>donde damos a la cabecera (<em>#cabecera</em>), el mismo ancho que a la página, le damos el color de fondo original y alineamos el texto al centro, y redefinimos los elementos <em>h1</em> y <em>h2</em>, buscando el tamaño, color y tipografía que mejor encajen con los originales. Un poco de "<em>padding</em>" superior y "<em>margin</em>" inferior respectivamente para darles también la separación de elementos más parecida posible al original.</p>
+<p>De momento esto es lo que tenemos:</p>
+<img class="captura" src="imagenes/captura2.jpg" alt="La cabecera de la web" title="La cabecera de la web" longdesc="descripciones.html#lacabecera" /> [<a href="descripciones.html#lacabecera" title="Descripción de la imagen">D</a>]<br/><br/>
+<a class="indice" href="#indice">Volver al índice</a>
+<h5 id="elmenu">2.3.2.- El menú</h5>
+<p>Para hacer el menú, en primer lugar creamos una caja para acomodar en ella el resto de cosas (con el <em>ID</em> menú, que también será único), colocaremos los elementos dentro de una lista (en este caso desordenada, "<em>ul</em>"), y dentro de cada elemento de la lista el enlace correspondiente:</p>
+<code class="html">
+&lt;div id="menu"&gt;<br/>
+&nbsp;&nbsp;&lt;ul&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="inicio.html">INICIO&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="areas.html">AREAS DE ACTUACIÓN&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="situacion.html">SITUACIÓN&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="contacto.html">CONTACTO&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&lt;/ul&gt;<br/>
+&lt;/div&gt;
+</code>
+<p>Esta es en general la manera más correcta y ordenada de crear un menú, al fin y al cabo una lista desordenada de elementos (que no necesitan ser ordenados por ningún criterio en especial).</p>
+<p>El asunto estará ahora en cómo les daremos el formato que nos interesa mediante <em>CSS</em>, para lo que usaremos estos selectores:</p>
+<code class="css">
+#menu {background-color: #333;<br/>
+height: 34px;<br/>
+}<br/>
+#menu ul {text-align: center;<br/>
+}<br/>
+#menu ul li {float: left;<br/>
+width: 25%;<br/>
+}<br/>
+#menu ul li a {color: #FFF;<br/>
+line-height: 34px;<br/>
+font-family: "Century Gothic";<br/>
+font-weight: bold;<br/>
+text-decoration: none;<br/>
+display: block;<br/>
+width: 99%;<br/>
+}<br/>
+#menu a:hover {background-color: #e9eada;<br/>
+color: #333;<br/>
+border: solid 1px #333;<br/>
+line-height: 32px;<br/>
+}
+</code>
+<p>Como vemos, vamos declarando por orden de fuera a adentro los elementos usados para el menú, de manera que sean selectores inequívocos y no vayan a afectar a otras partes que no nos interese: <em>#menu, #menu ul, #menu ul li</em>, etc.</p>
+<p>Vamos por partes: al menú sólo le hemos dado un color de fondo y una altura fija de <em>34px</em>, para que ocupe lo que ocupaba el orginal de alto. Al elemento "<em>ul</em>" del menú le hemos puesto un "<em>text-align: center</em>" para que los enlaces estén centrados dentro de su espacio asignado. Los elementos "<em>li</em>" (cada elemento de la lista), los hemos flotado a la izquierda con "<em>float: left</em>", de manera que permitan que haya otros elementos a su lado, y con lo que conseguimos que este listado de enlaces aparezcan todos en una misma línea en horizontal. Finalmente les hemos dado un ancho de un <em>25%</em> a cada uno, porque como son cuatro, el espacio que cada uno ocupe será perfectamente proporcional.</p>
+<p>Y generalmente damos todos los estilos a la caja del menú, la lista, los elementos de la lista, etcétera, pero nos solemos olvidar de que el elemento más importante es el enlace (<em>a</em>), entre otras cosas porque si luego queremos poder aplicarle variaciones al pasar el ratón, ser visitado, etc., las propiedades a modificar las deberá llevar el enlace, o será lo más cómodo.</p>
+<p>En este caso le hemos dado al enlace el estilo de letra que había en el diseño original, hemos añadido un "<em>display: block</em>", que como recordaremos sirve para que un elemento de línea se comporte como uno de bloque y por tanto acepte las propiedades como "<em>width</em>" o "<em>height</em>" para fijar su tamaño; le hemos dado el mismo alto de línea que la caja del menú (<em>line-height: 34px</em>) con el fin de que el enlace ocupe todo el alto de la caja pero además el texto quede centrado verticalmente, y poco más; color blanco, que no aparezca el subrayado (que por defecto en los enlaces sí aparece), y que aparezca en negrita (<em>font-weight: bold</em>)</p>
+<p>Gracias a esas propiedades que hemos dado a los enlaces, nos hemos permitido el lujo de añadir un pequeño efecto que no existía al pasar el ratón sobre cada uno de ellos con el selector "<em>#menu a:hover</em>": cambiar el color del cuerpo y fondo (<em>background-color: #e9eada;
+color: #333;</em>) y añadir un borde del color del texto (<em>border: solid 1px #333;</em>), lo que también nos ha obligado a reducir <em>2px</em> la altura para conseguir que no se muevan (<em>line-height: 32px</em>).</p>
+<p>Lo que tenemos hasta ahora es:</p>
+<img class="captura" src="imagenes/captura3.jpg" alt="La cabecera de la web y el menú" title="La cabecera de la web y el menú" longdesc="descripciones.html#conmenu" /> [<a href="descripciones.html#conmenu" title="Descripción de la imagen">D</a>]<br/><br/>
+<a class="indice" href="#indice">Volver al índice</a>
+<h5 id="elcuerpo">2.3.3.- El cuerpo</h5>
+<p>El cuerpo principal va a estar formado por dos bloques uno al lado del otro: un bloque a la izquierda con la presentación de la compañía, y otro a la derecha con un menú secundario de los servicios específicos que se prestan.</p>
+<p>Por lo tanto, vamos a colocar una caja con un "<em>id</em>" llamado "cuerpo", que acogerá ambos bloques. Dentro de ella pondremos los bloques de "presentación" y otro que llamaremos "secciones".</p>
+<code class="html">
+&lt;div id="cuerpo"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;div id="presentacion"&gt;&lt;/div&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;div id="secciones"&gt;&lt;/div&gt;<br/>
+&lt;/div&gt;<br/>
+</code>
+<p>Vamos a ver cada bloque. El de la izquierda, el de presentación, en primer lugar deberá ser flotado a la izquierda (<em>float: left</em>), de manera que ocupe el ancho que le indiquemos y nos permita poner otro bloque a su derecha. Le daremos pues ese ancho fijo y le pondremos también un borde en el lado derecho para imitar esa separación que existe entre las dos cajas del contenido central:</p>
+<code class="css">
+#presentacion {width: 380px;<br/>
+float: left;<br/>
+border-right: solid 2px #002142;<br/>
+}
+</code>
+<p>Como vimos en el original, ese bloque lleva una imagen que incrustaremos con la etiqueta "<em>img</em>" para que sea reemplazada por su texto alternativo en caso de que no se vea la imagen, y a la que también tendremos que aplicar un "<em>float:left</em>", pero esta vez para que permita que el texto se coloque a su derecha ocupando todo su alto:</p>
+<code class="css">
+#presentacion img {float: left;<br/>
+padding: 20px 20px 20px 14px;<br/>
+}
+</code>
+<p>El "<em>padding</em>" nos permitirá controlar el espacio entre la imagen y el texto. Para conseguir este efecto deberemos colocar la imagen antes del texto en el <em>HTML</em> de esta manera:</p>
+<code class="html">
+&lt;div id="presentacion"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;img src="img/ubicacion.jpg" alt="Edificio donde se encuentra el despacho" /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;p&gt;Los servicios de asesoramiento...&lt;/p&gt;<br/>
+&lt;/div&gt;
+</code>
+<p>El resultado será este:</p>
+<img class="captura" src="imagenes/captura4.jpg" alt="Bloque de presentación de la compañía" title="Bloque de presentación de la compañía" longdesc="descripciones.html#presentacion" /> [<a href="descripciones.html#presentacion" title="Descripción de la imagen">D</a>]<br/><br/>
+<p>Para el bloque derecho, que hemos llamado "secciones", utilizaremos dos listas desordenadas diferentes (<em>ul</em>), ya que como vimos en el original, el autor ha dividido ese submenú en dos columnas, y esta será la mejor manera de hacerlo:</p>
+<code class="html">
+&lt;div id=&quot;secciones&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;ul&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;civil.html&quot;&gt;Derecho Civil&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;mercantil.html&quot;&gt;Derecho Mercantil&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;administrativo.html&quot;&gt;Derecho Administrativo&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;penal.html&quot;&gt;Derecho Penal&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&lt;/ul&gt;<br/>
+&nbsp;&nbsp;&lt;ul&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;familia.html&quot;&gt;Derecho de Familia&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;laboral.html&quot;&gt;Derecho Laboral&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;accidentes.html&quot;&gt;Accidentes&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&lt;/ul&gt;<br/>
+&nbsp;&nbsp;&lt;img src=&quot;img/libros.jpg&quot; alt=&quot;Imagen de una librería de derecho&quot; /&gt;<br/>
+&lt;/div&gt;<br/>
+&lt;div class="corte"&gt;&lt;/div&gt;
+</code>
+<p>Aquí podemos ver varias cosas: como decíamos, hemos usado dos listas diferentes para poder colocarlas en dos columnas, para lo que hemos flotado a la izquierda cada una de ellas; hemos puesto el guión de cada elemento fuera de los enlaces para que no se vean afectados por el formato de los mismos, concretamente por la leve transformación que haremos al pasar el ratón sobre cada uno: serán subrayados. Finalmente los listado están apoyados por otra imagen representativa de la compañia. Y todo esto lo hacemos con este código <em>CSS</em>:</p>
+<code class="css">
+#secciones ul {float: left;<br/>
+margin: 16px 0 0 54px;<br/>
+}<br/>
+#secciones ul li a {color: #006;<br/>
+font-family: "Century Gothic";<br/>
+font-weight: bold;<br/>
+font-size: 13px;<br/>
+text-decoration: none;<br/>
+}<br/>
+#secciones ul li a:hover {text-decoration: underline;<br/>
+}<br/>
+#secciones  img {padding: 22px 16px 16px;<br/>
+width: 426px;<br/>
+height: 160px;<br/>
+float: left;<br/>
+}<br/>
+.corte {clear: both;}
+</code>
+<p>El resultado hasta ahora:</p>
+<img class="captura" src="imagenes/captura5.jpg" alt="Todo excepto el pie" title="Todo excepto el pie" longdesc="descripciones.html#sinpie" /> [<a href="descripciones.html#sinpie" title="Descripción de la imagen">D</a>]<br/><br/>
+<p>Supongo que os habrán llamado la atención en el código tanto el "<em>div</em>" con la clase "<em>corte</em>" (<em>&lt;div class="corte"&gt;&lt;/div&gt;</em>), como el selector del mismo nombre en la <em>CSS</em> (<em>.corte {clear: both;}</em>). Esto es algo fundamental y fruto de muchas confusiones. La cosa es la siguiente: aunque a la caja "cuerpo" le hemos puesto un color de fondo, éste no se verá porque cuando una caja tiene dentro otras cajas que están flotadas, éstas no ocupan espacio físico real y no hacen crecer a su caja contenedora. En este caso lo que se suele hacer es añadir una caja vacía cuyo único objetivo es no estar flotada e impedir que otros elementos se coloquen a sus lados, ocupando toda la línea horizontal, lo que consigue producir lo que llamamos un "corte" en el flujo del documento, obligando a la caja contenedora a crecer para acojerla a ella, que como está después de las flotadas (pero dentro de la contenedora), hará que crezca hasta el final de las flotadas como mínimo.</p>
+<a class="indice" href="#indice">Volver al índice</a>
+<h5 id="elpie">2.3.4.- El pie</h5>
+<p>Y ya sólo nos queda rematar la faena con el pie. De entrada lo ponemos <strong>fuera del bloque principal</strong> de contenido, pero <strong>dentro del contenedor general</strong>, de esa manera se confina a la anchura de éste sin que le pongamos nada (recordarás que si a un elemento de bloque no le indicas anchura y la modificas de ninguna manera, ocupará el <em>100%</em> de ancho de su contenedor padre).</p>
+<p>Así que simpemente colocamos un "<em>div</em>" con el indentificador del pie, al que daremos mediante <em>CSS</em> una altura exacta (como en el original), un color de fondo, tamaño y color de letra:</p>
+<code class="css">
+#pie {background-color: #191919;<br/>
+height: 106px;<br/>
+color: #fff;<br/>
+font-size: 10px;<br/>
+}
+</code>
+<p>Ahora veamos los elementos dentro del pie. En primer lugar tenemos una imagen (el teléfono), que para imitar cómo estaba en el original, pondremos flotada a la derecha, de manera que se pegará al margen derecho del pie y nos permitirá poner texto a su izquierda. Le daremos un "<em>padding</em>" para indicar a qué distancia se colocará el texto.</p>
+<p>Ahora tenemos cuatro cajas de texto con los datos de contacto, cada una de ellas en una línea independiente. Bien, aunque no es imprescindible hacerlo así, lo que vamos a hacer es colocar una caja que nos permita posicionarla dónde y cómo nos interese, y dentro de ella pondremos los bloques de texto, que serán párrafos (elementos "<em>p</em>"). Esto puede hacerse de muchas maneras (como todo el resto), pero en este caso esta me parece la más cómoda.</p>
+<p>A esa caja la llamaremos "datos", la flotaremos a la derecha para que se pegue sin hacer nada más a la imagen del teléfono, le daremos un margen superior para ubicarla donde nos interesa y diremos que el texto que contenga aparezca alineado a la derecha, de esa manera cada bloque se ajustará a la imagen que teníamos en lugar de alinearse a la izquierda (seguimos en realidad imitando el aspecto visual del original).</p>
+<code class="css">
+#pie {background-color: #191919;<br/>
+height: 106px;<br/>
+color: #fff;<br/>
+font-size: 10px;<br/>
+}<br/>
+#pie img {float: right;<br/>
+padding: 10px;<br/>
+}<br/>
+#pie div.datos {float: right;<br/>
+margin-top: 14px;<br/>
+text-align: right;<br/>
+}
+</code>
+<p>Colocaremos cada línea de datos dentro de un párrafo para que aparezca en líneas independientes sin tener que provocar el salto de línea con un <em>&lt;br /&gt;</em> (debido a que "<em>p</em>" es un elemento de bloque y contiene un salto de línea en sí mismo como todos los de su especie). Por último, aparece un enlace que daría acceso a una página con un formulario para solicitar una cita. Simplemente pondremos ese texto dentro de un enlace y le daremos el formato que aparece en el original con este selector:</p>
+<code class="css">
+#pie a {font-weight: bold;<br/>
+font-size: 18px;<br/>
+color: #fff;<br/>
+line-height: 30px;<br/>
+}
+</code>
+<a class="indice" href="#indice">Volver al índice</a>
+<h3 id="resultado">3.- RESULTADO FINAL</h3>
+<p>Y eso es todo, ya tenemos la página completamente transformada de un diseño con tablas y estilos dentro del contenido a un diseño en <em>XHTML</em> con <em>CSS</em> y la presentación completamente independiente del contenido. El resultado final es este:</p>
+<img class="captura" src="imagenes/captura6.jpg" alt="Imagen final de la web" title="Imagen final de la web" longdesc="descripciones.html#final" /> [<a href="descripciones.html#final" title="Descripción de la imagen">D</a>]<br/><br/>
+<a href="sin_tablas.html">Enlace a la página real</a>
+<p>(Este enlace es externo y lleva a otra página)</p>
+
+<p>El código <em>HTML</em> resultante es este:</p>
+<code class="html">
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;es&quot; lang=&quot;es-es&quot;&gt;<br/>
+&lt;head&gt;<br/>
+&lt;title&gt;Abogado-Malaga, Despacho de Abogados&lt;/title&gt;<br/>
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot; /&gt;<br/>
+&lt;meta name=&quot;Keywords&quot; content=&quot;abogado, malaga, despacho, colegio, recursos, penal, social&quot; /&gt;<br/>
+&lt;meta name=&quot;Description&quot; content=&quot;Despacho profesional en Málaga del abogado ****&quot; /&gt;<br/>
+&lt;meta name=&quot;Author&quot; content=&quot;****&quot; /&gt;<br/>
+&lt;meta name=&quot;Subject&quot; content=&quot;Despacho de Abogados&quot; /&gt;<br/>
+&lt;meta name=&quot;Language&quot; content=&quot;es&quot; /&gt;<br/>
+&lt;meta name=&quot;Robots&quot; content=&quot;index, follow&quot; /&gt;<br/>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;estilos.css&quot; type=&quot;text/css&quot; /&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+&lt;div id=&quot;contenedor&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;div id=&quot;cabecera&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;www.abogado-malaga.es&lt;/h1&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;DESPACHO DE ABOGADOS&lt;/h2&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;imagenes/panoramica.jpg&quot; alt=&quot;imagen corporativa del despacho&quot; /&gt;<br/>
+&nbsp;&nbsp;&lt;/div&gt;<br/>
+&nbsp;&nbsp;&lt;div id=&quot;menu&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;inicio.html&quot;&gt;INICIO&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;areas.html&quot;&gt;AREAS DE ACTUACIÓN&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;situacion.html&quot;&gt;SITUACIÓN&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;contacto.html&quot;&gt;CONTACTO&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br/>
+&nbsp;&nbsp;&lt;/div&gt;<br/>
+&nbsp;&nbsp;&lt;div id=&quot;cuerpo&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id=&quot;presentacion&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;imagenes/ubicacion.jpg&quot; alt=&quot;Edificio donde se encuentra el despacho&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Los servicios de asesoramiento que  presta el despacho, ubicado en Málaga capital, abarca la totalidad  de España, contando, si fuera preciso, con la colaboración de los  mejores profesionales para el supuesto de que así lo requiriese la  situaci´´on o el propio cliente y siempre bajo los criterios de  competencia, implicación, responsabilidad y transparencia.&lt;/p&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id=&quot;secciones&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;civil.html&quot;&gt;Derecho Civil&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;mercantil.html&quot;&gt;Derecho Mercantil&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;administrativo.html&quot;&gt;Derecho Administrativo&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;penal.html&quot;&gt;Derecho Penal&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;familia.html&quot;&gt;Derecho de Familia&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;laboral.html&quot;&gt;Derecho Laboral&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;- &lt;a href=&quot;accidentes.html&quot;&gt;Accidentes&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;imagenes/libros.jpg&quot; alt=&quot;Imagen de una librería de derecho&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;corte&quot;&gt;&lt;/div&gt;<br/>
+&nbsp;&nbsp;&lt;/div&gt;<br/>
+&nbsp;&nbsp;&lt;div id=&quot;pie&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;imagenes/telefono.jpg&quot; alt=&quot;Imagen de un teléfono-fax&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;datos&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Tel&amp;eacute;fono: *********&lt;/p&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Fax: *******&lt;/p&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Dirección: ***********************&lt;/p&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;CONSULTA PREVIA CITA&lt;/a&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>
+&nbsp;&nbsp;&lt;/div&gt;<br/>
+&lt;/div&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;
+</code>
+
+<p>Y el código <em>CSS</em> utilizado es este:</p>
+<code class="css">
+* {margin:0; padding: 0;}<br/>
+body {font-family: Verdana, Arial, Helvetica, sans-serif;<br/>
+font-size: 16px;<br/>
+background-color:#002142;<br/>
+}<br/>
+#contenedor {width: 840px;<br/>
+margin: 20px auto;<br/>
+}<br/>
+#cabecera {width: 840px;<br/>
+background-color: #e9eada;<br/>
+text-align: center;<br/>
+}<br/>
+h1 {font-family: "Century Gothic";<br/>
+font-size: 48px;<br/>
+padding-top: 10px;<br/>
+}<br/>
+h2 {font-family: "Palatino Linotype";<br/>
+font-size: 25px;<br/>
+color: #5a011f;<br/>
+margin-bottom: 4px;<br/>
+}<br/>
+ul {list-style-type: none;}<br/>
+#cabecera img {margin-bottom: -3px;}<br/>
+#menu {background-color: #333;<br/>
+height: 34px;<br/>
+}<br/>
+#menu ul {text-align: center;}<br/>
+#menu ul li {float: left;<br/>
+width: 25%;<br/>
+}<br/>
+#menu ul li a {color: #FFF;<br/>
+line-height: 34px;<br/>
+font-family: "Century Gothic";<br/>
+font-weight: bold;<br/>
+text-decoration: none;<br/>
+display: block;<br/>
+width: 99%;<br/>
+}<br/>
+#menu a:hover {background-color: #e9eada;<br/>
+color: #333;<br/>
+border: solid 1px #333;<br/>
+line-height: 32px;<br/>
+}<br/>
+#cuerpo {background-color: #F0F0F0;}<br/>
+#presentacion {width: 380px;<br/>
+float: left;<br/>
+border-right: solid 2px #002142;<br/>
+}<br/>
+#presentacion img {float: left;<br/>
+padding: 20px 20px 20px 14px;<br/>
+}<br/>
+#presentacion p {font-family: Arial, Helvetica, sans-serif;<br/>
+font-size: 12px;<br/>
+color: #000066;<br/>
+margin: 20px 10px 0 0;<br/>
+}<br/>
+#secciones  img {padding: 22px 16px 16px;<br/>
+width: 426px;<br/>
+height: 160px;<br/>
+float: left<br/>
+}<br/>
+.corte {clear: both;}<br/>
+#secciones ul {float: left;<br/>
+margin: 16px 0 0 54px;<br/>
+}<br/>
+#secciones ul li a {color: #006;<br/>
+font-family: "Century Gothic";<br/>
+font-weight: bold;<br/>
+font-size: 13px;<br/>
+text-decoration: none;<br/>
+}<br/>
+#secciones ul li a:hover {text-decoration: underline;}<br/>
+#pie {background-color: #191919;<br/>
+height: 106px;<br/>
+color: #fff;<br/>
+font-size: 10px;<br/>
+}<br/>
+#pie img {float: right;<br/>
+padding: 10px;<br/>
+}<br/>
+#pie div.datos {float: right;<br/>
+margin-top: 14px;<br/>
+text-align: right;<br/>
+}<br/>
+#pie p {padding-top: 2px;}<br/>
+#pie a {font-weight: bold;<br/>
+font-size: 18px;<br/>
+color: #fff;<br/>
+line-height: 30px;<br/>
+}
+</code>
+<p>Esta forma de diseñar, como ya hablamos en la primera parte, tiene toda una serie de ventajas en cuanto a velocidad de carga, accesibilidad, respeto por los estándares, posicionamiento e indexado para buscadores, separación de contenido y formato, etcétera, que deberían ser suficientes como para que ni nos planteáramos maquetar a la antigua usanza. Además, como se ha visto, aprendiendo cuatro nociones de CSS es bastante sencillo, y con otras cuatro más, mucho más flexible y rico que con el antiguo sistema.</p>
+<p>Lo dicho: esto no pretende ser un manual de buenas prácticas en el diseño y maquetación con <em>XHTML</em> y <em>CSS</em>, sino un simple ejemplo de cómo se podría conseguir transformar un antiguo diseño con tablas al formato actual.</p>
+<p>Y bueno, nuevamente sólo me queda desearos suerte, animaros a que investiguéis todo lo que podáis sobre el diseño a través de CSS y sobre todo, que os divirtáis.</p>
+<p>Espero que esta segunda parte también os haya podido servir de algo. Ahora a ver cómo planteamos la tercera. :-)</p>
+<p>Mikel Morote Donazar</p>
+<a class="indice" href="#indice">Volver al índice</a>
+</div>
+<a href="migracion_sin_dolor.html">Ir a &quot;Migracón sin dolor - Parte I&quot;</a>
+</div>
+</body>
+</html>
